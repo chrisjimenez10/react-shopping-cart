@@ -6,7 +6,7 @@ const InventoryList = (props) => {
       <div className="inventory-list">
         <h2>{props.title}</h2>
         <ul>
-            {props.inventory.map((item)=>{
+            {props.inventory.length ? (props.inventory.map((item)=>{
                 return (
                     <li key={item._id}>
                         <p>{item.name}</p>
@@ -19,7 +19,12 @@ const InventoryList = (props) => {
 
                     </li>
                 )
-            })}
+            })) :
+            (
+              <li>
+                <p>---- Empty ----</p>
+              </li>
+            )}
         </ul>
       </div>
     );
